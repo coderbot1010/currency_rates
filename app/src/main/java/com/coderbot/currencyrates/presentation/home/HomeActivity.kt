@@ -1,11 +1,13 @@
 package com.coderbot.currencyrates.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.coderbot.currencyrates.R
 import com.coderbot.currencyrates.data.model.CurrencyRate
 import com.coderbot.currencyrates.databinding.ActivityHomeBinding
 import com.coderbot.currencyrates.presentation.base.AppActivity
+import com.coderbot.currencyrates.presentation.calculator.CalculatorActivity
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -34,7 +36,7 @@ class HomeActivity : AppActivity()
 
     private fun init()
     {
-        adapter = CurrencyRatesAdapter(this@HomeActivity) { }
+        adapter = CurrencyRatesAdapter(this@HomeActivity) { openCalculator(it) }
         binding.rates.setHasFixedSize(false)
         binding.rates.isNestedScrollingEnabled = false
         binding.rates.layoutManager = LinearLayoutManager(this@HomeActivity)
@@ -62,5 +64,11 @@ class HomeActivity : AppActivity()
     {
         dismissLoading()
         Snackbar.make(binding.mainView, error, Snackbar.LENGTH_LONG).setAction(getString(R.string.ok)) { }.show()
+    }
+
+    private fun openCalculator(currencyRate: CurrencyRate)
+    {
+        startActivity(Intent(this@HomeActivity, CalculatorActivity::class.java).putExtra("CURRENCY", currencyRate.currency).putExtra("RATE", currencyRate.rate))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 }

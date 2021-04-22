@@ -15,7 +15,9 @@ class GetCurrencyRates constructor(private val repository: CurrencyRepository)
         {
             rates = repository.getCurrencyRates()
         }
-        emit(CurrencyRateMapper.map(rates))
+        val currencyRates = CurrencyRateMapper.map(rates)
+        currencyRates.sortBy { it.currency }
+        emit(currencyRates)
     }.catch { error ->
         error.printStackTrace()
         throw error

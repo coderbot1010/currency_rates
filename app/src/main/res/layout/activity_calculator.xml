@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/base"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:minHeight="100dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:textAllCaps="true"
+        android:textColor="@color/colorGreyDark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/base_currency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1.00" />
+
+    <TextView
+        android:id="@+id/base_currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:gravity="center_vertical"
+        android:minHeight="100dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="@string/eur"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintTop_toBottomOf="@+id/base" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:minHeight="100dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/base_currency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="1.00" />
+
+    <TextView
+        android:id="@+id/result_currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:gravity="center_vertical"
+        android:minHeight="100dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="@string/eur" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
