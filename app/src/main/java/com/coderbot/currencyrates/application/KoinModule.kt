@@ -4,8 +4,10 @@ import com.coderbot.currencyrates.BuildConfig
 import com.coderbot.currencyrates.data.repository.*
 import com.coderbot.currencyrates.domain.repository.*
 import com.coderbot.currencyrates.domain.usecase.*
+import com.coderbot.currencyrates.presentation.home.HomeViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,7 +20,7 @@ val koinModule = module {
 
     single { GetCurrencyRates(get()) }
 
-    // viewModel { SplashViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
 }
 
 fun provideRetrofit(): Retrofit

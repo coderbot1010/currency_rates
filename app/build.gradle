@@ -20,8 +20,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes.each {
-        it.buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
-        it.buildConfigField "String", "API_KEY", "\"c63cb6b1ed8347afbed03d4f249f56ff\""
+        it.buildConfigField "String", "BASE_URL", "\"http://data.fixer.io/api/\""
+        it.buildConfigField "String", "API_KEY", "\"52a78e143d10cb58cd45b6d9ffb666de\""
     }
     buildTypes {
         release {
